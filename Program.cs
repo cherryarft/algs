@@ -1,4 +1,7 @@
-﻿var arr = new int[] { 1, 2, 1, 3, 4, 4, 3, 1 };
+﻿using System.Collections;
+using System.Runtime.InteropServices;
+
+var arr = new int[] { 1, 2, 1, 3, 4, 4, 3, 1 };
 
 // 1 2 3 4
 
@@ -12,12 +15,26 @@ static void Run()
 {
     foreach (var arr in new int[][]
              {
-                 [1, 2, 3],
-                 [1, 1, 3, 3, 5, 5, 7, 7]
+                 [5, 7, 3, 9, 4, 9, 8, 3, 1],
+                 [9, 9, 8, 8]
              })
     {
-        var res = CountElements(arr);
+        var res = FindMaxLength(arr);
     }
+
+
+    // foreach (var arr in new string[]
+    //          {
+    //              "loonbalxballpoon",
+    //              "krhizmmgmcrecekgyljqkldocicziihtgpqwbticmvuyznragqoyrukzopfmjhjjxemsxmrsxuqmnkrzhgvtgdgtykhcglurvppvcwhrhrjoislonvvglhdciilduvuiebmffaagxerjeewmtcwmhmtwlxtvlbocczlrppmpjbpnifqtlninyzjtmazxdbzwxthpvrfulvrspycqcghuopjirzoeuqhetnbrcdakilzmklxwudxxhwilasbjjhhfgghogqoofsufysmcqeilaivtmfziumjloewbkjvaahsaaggteppqyuoylgpbdwqubaalfwcqrjeycjbbpifjbpigjdnnswocusuprydgrtxuaojeriigwumlovafxnpibjopjfqzrwemoinmptxddgcszmfprdrichjeqcvikynzigleaajcysusqasqadjemgnyvmzmbcfrttrzonwafrnedglhpudovigwvpimttiketopkvqw",
+    //              "balon",
+    //              "nlaebolko",
+    //              "loonbalxballpoon",
+    //              "leetcode"
+    //          })
+    // {
+    //     var res = MaxNumberOfBalloons(arr);
+    // }
 
     // foreach (var (arr, k) in new List<(int[], int)>
     //          {
@@ -33,17 +50,22 @@ static void Run()
     // {
     //     var res = CheckIfPangram(str);
     // }
+
+    // foreach (var arr in new int[][][]
+    //          {
+    //              [[1, 3], [2, 3], [3, 6], [5, 6], [5, 7], [4, 5], [4, 8], [4, 9], [10, 4], [10, 9]],
+    //              [[2, 3], [1, 3], [5, 4], [6, 4]]
+    //          })
+    // {
+    //     var res = FindWinners(arr);
+    // }
 }
 
-static int CountElements(int[] arr)
+static int FindMaxLength(int[] nums)
 {
-    var set = new HashSet<int>(arr);
-
-    return arr.Count(x => set.Contains(x + 1));
+    return default;
 }
 
-
-return 0;
 
 /*
  * -7, -6, -5, -3, -2, -1

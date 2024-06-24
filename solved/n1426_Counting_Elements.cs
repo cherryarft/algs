@@ -1,6 +1,6 @@
 ﻿namespace Alg.solved;
 
-public class n1426_Counting_Elements
+public static class n1426_Counting_Elements
 {
     public static void Run()
     {

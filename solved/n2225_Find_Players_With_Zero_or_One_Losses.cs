@@ -2,7 +2,7 @@
 
 namespace Alg.solved;
 
-public class n2225_Find_Players_With_Zero_or_One_Losses
+public static class n2225_Find_Players_With_Zero_or_One_Losses
 {
     public static void Run()
     {

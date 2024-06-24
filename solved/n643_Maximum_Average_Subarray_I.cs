@@ -1,6 +1,6 @@
 ﻿namespace Alg.solved;
 
-public class n643_Maximum_Average_Subarray_I
+public static class n643_Maximum_Average_Subarray_I
 {
     public static void Run()
     {

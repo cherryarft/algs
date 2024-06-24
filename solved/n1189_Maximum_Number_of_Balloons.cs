@@ -1,6 +1,6 @@
 ﻿namespace Alg.solved;
 
-public class n1189_Maximum_Number_of_Balloons
+public static class n1189_Maximum_Number_of_Balloons
 {
     public static void Run()
     {

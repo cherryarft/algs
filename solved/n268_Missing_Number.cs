@@ -1,6 +1,6 @@
 ﻿namespace Alg.solved;
 
-public class n268_Missing_Number
+public static class n268_Missing_Number
 {
     public static void Run()
     {

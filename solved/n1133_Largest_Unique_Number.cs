@@ -2,7 +2,7 @@
 
 namespace Alg.solved;
 
-public class n1133_Largest_Unique_Number
+public static class n1133_Largest_Unique_Number
 {
     public static void Run()
     {

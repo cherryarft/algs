@@ -1,6 +1,6 @@
 ﻿namespace Alg.solved;
 
-public class n1004_Max_Consecutive_Ones_III
+public static class n1004_Max_Consecutive_Ones_III
 {
     public static void Run()
     {

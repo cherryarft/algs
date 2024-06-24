@@ -13,13 +13,23 @@ Run();
 
 static void Run()
 {
-    foreach (var arr in new int[][]
+    // foreach (var arr in new int[][]
+    //          {
+    //              [0, 1],
+    //              [0, 1, 0]
+    //          })
+    // {
+    //     var res = FindMaxLength(arr);
+    // }
+
+    foreach (var arr in new (string, string)[]
              {
-                 [5, 7, 3, 9, 4, 9, 8, 3, 1],
-                 [9, 9, 8, 8]
+                 ("a", "b"),
+                 ("aa", "ab"),
+                 ("aa", "aab")
              })
     {
-        var res = FindMaxLength(arr);
+        var res = CanConstruct(arr.Item1, arr.Item2);
     }
 
 
@@ -61,9 +71,27 @@ static void Run()
     // }
 }
 
-static int FindMaxLength(int[] nums)
+static bool CanConstruct(string ransomNote, string magazine)
 {
-    return default;
+    var dic = new Dictionary<char, int>();
+
+    foreach (var c in magazine)
+    {
+        ref var v = ref CollectionsMarshal.GetValueRefOrAddDefault(dic, c, out _);
+
+        v += 1;
+    }
+
+    foreach (var c in ransomNote)
+    {
+        ref var v = ref CollectionsMarshal.GetValueRefOrAddDefault(dic, c, out _);
+
+        if (v == 0) return false;
+
+        v -= 1;
+    }
+
+    return true;
 }
 
 

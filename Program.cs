@@ -1,60 +1,59 @@
 ﻿using System.Collections;
 using System.Runtime.InteropServices;
 
-var arr = new int[] { 1, 2, 1, 3, 4, 4, 3, 1 };
-
-// 1 2 3 4
-
-var set = new HashSet<int>(arr);
-
-var a = -1;
-
 Run();
 
 static void Run()
 {
     // foreach (var arr in new int[][]
     //          {
-    //              [0, 1],
-    //              [0, 1, 0]
+    //              [0, 1, 0, 3, 12],
+    //              [0]
     //          })
     // {
-    //     var res = FindMaxLength(arr);
+    //     MoveZeroes(arr);
     // }
 
-    foreach (var arr in new (string, string)[]
-             {
-                 ("a", "b"),
-                 ("aa", "ab"),
-                 ("aa", "aab")
-             })
-    {
-        var res = CanConstruct(arr.Item1, arr.Item2);
-    }
+    // foreach (var (str, c) in new[]
+    //          {
+    //              ("abcdefd", 'd'),
+    //              ("xyxzxe", 'z'),
+    //              ("abcd", 'z')
+    //          })
+    // {
+    //     var res = ReversePrefix(str, c);
+    // }
+
+    // foreach (var arr in new (string, string)[]
+    //          {
+    //              ("a", "b"),
+    //              ("aa", "ab"),
+    //              ("aa", "aab")
+    //          })
+    // {
+    //     var res = CanConstruct(arr.Item1, arr.Item2);
+    // }
 
 
     // foreach (var arr in new string[]
     //          {
-    //              "loonbalxballpoon",
-    //              "krhizmmgmcrecekgyljqkldocicziihtgpqwbticmvuyznragqoyrukzopfmjhjjxemsxmrsxuqmnkrzhgvtgdgtykhcglurvppvcwhrhrjoislonvvglhdciilduvuiebmffaagxerjeewmtcwmhmtwlxtvlbocczlrppmpjbpnifqtlninyzjtmazxdbzwxthpvrfulvrspycqcghuopjirzoeuqhetnbrcdakilzmklxwudxxhwilasbjjhhfgghogqoofsufysmcqeilaivtmfziumjloewbkjvaahsaaggteppqyuoylgpbdwqubaalfwcqrjeycjbbpifjbpigjdnnswocusuprydgrtxuaojeriigwumlovafxnpibjopjfqzrwemoinmptxddgcszmfprdrichjeqcvikynzigleaajcysusqasqadjemgnyvmzmbcfrttrzonwafrnedglhpudovigwvpimttiketopkvqw",
-    //              "balon",
-    //              "nlaebolko",
-    //              "loonbalxballpoon",
-    //              "leetcode"
+    //              "ab-cd",
+    //              "a-bC-dEf-ghIj",
+    //              "Test1ng-Leet=code-Q!"
     //          })
     // {
-    //     var res = MaxNumberOfBalloons(arr);
+    //     var res = ReverseOnlyLetters(arr);
     // }
 
-    // foreach (var (arr, k) in new List<(int[], int)>
-    //          {
-    //              ([7, 4, 3, 9, 1, 8, 5, 2, 6], 3),
-    //              ([100000], 0),
-    //              ([8], 100000)
-    //          })
-    // {
-    //     var res = GetAverages(arr, k);
-    // }
+    foreach (var (arr, k) in new (int[], int)[]
+             {
+                 ([2, 3, 1, 2, 4, 3], 7),
+                 ([1, 4, 4], 4),
+                 ([1, 1, 1, 1, 1, 1, 1, 1], 11)
+             })
+    {
+        var res = MinSubArrayLen(k, arr);
+    }
 
     // foreach (var str in new[] { "thequickbrownfoxjumpsoverthelazydog", "leetcode" })
     // {
@@ -63,35 +62,40 @@ static void Run()
 
     // foreach (var arr in new int[][][]
     //          {
-    //              [[1, 3], [2, 3], [3, 6], [5, 6], [5, 7], [4, 5], [4, 8], [4, 9], [10, 4], [10, 9]],
-    //              [[2, 3], [1, 3], [5, 4], [6, 4]]
+    //              [[1, 2, 3], [2, 4]],
+    //              [[1, 2, 3, 6], [2, 3, 4, 5]]
     //          })
     // {
-    //     var res = FindWinners(arr);
+    //     var res = GetCommon(arr[0], arr[1]);
     // }
 }
 
-static bool CanConstruct(string ransomNote, string magazine)
+static int MinSubArrayLen(int target, int[] nums)
 {
-    var dic = new Dictionary<char, int>();
+    var (left, right) = (0, 0);
 
-    foreach (var c in magazine)
+    var min = nums.Length;
+    var sum = 0;
+
+    while (right < nums.Length)
     {
-        ref var v = ref CollectionsMarshal.GetValueRefOrAddDefault(dic, c, out _);
+        sum += nums[right];
 
-        v += 1;
+        while (sum >= target)
+        {
+            var length = right - left + 1;
+            if (length < min)
+            {
+                min = length;
+            }
+
+            sum -= nums[left++];
+        }
+
+        right++;
     }
 
-    foreach (var c in ransomNote)
-    {
-        ref var v = ref CollectionsMarshal.GetValueRefOrAddDefault(dic, c, out _);
-
-        if (v == 0) return false;
-
-        v -= 1;
-    }
-
-    return true;
+    return left == 0 ? 0 : min;
 }
 
 

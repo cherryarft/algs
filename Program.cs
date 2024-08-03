@@ -1,3 +1,4 @@
 ﻿using Alg.solved;
 
-n791_Custom_Sort_String.Run();
+
+n346_Moving_Average_from_Data_Stream.Run();
